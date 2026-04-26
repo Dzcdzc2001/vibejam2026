@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash *)",
+      "Bash(git fetch *)",
+      "Bash(python3 -c \"from PIL import Image; print\\('Pillow available'\\)\")",
+      "Bash(python3 *)",
+      "Bash(git commit *)",
+      "Bash(git add *)",
+      "Bash(/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng --check-only)",
+      "Bash(/Applications/Godot.app/Contents/MacOS/Godot --headless --script res://scripts/scenes/main_menu.gd --path /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng)",
+      "Bash(timeout 15 /Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng)",
+      "Bash(xxd)"
+    ]
+  }
+}

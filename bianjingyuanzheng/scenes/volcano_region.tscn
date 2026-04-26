@@ -15,11 +15,12 @@ size = Vector2(64, 64)
 [node name="VolcanoRegion" type="Node2D"]
 script = ExtResource("1")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
 layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.176, 0.122, 0.102, 1)
@@ -33,6 +34,8 @@ groups = ["player_character"]
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter"]
 texture = ExtResource("2")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
 modulate = Color(0.3, 0.5, 1.0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
@@ -155,30 +158,39 @@ position = Vector2(750, 300)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/BossLairTrigger"]
 shape = SubResource("RectShape64")
 
+[node name="BossLabel" type="Label" parent="Triggers/BossLairTrigger"]
+position = Vector2(-50, -30)
+text = "BOSS巢穴"
+
 [node name="ExitTrigger" type="Area2D" parent="Triggers"]
 position = Vector2(50, 550)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ExitTrigger"]
 shape = SubResource("RectShape64")
 
+[node name="ExitLabel" type="Label" parent="Triggers/ExitTrigger"]
+position = Vector2(-30, -20)
+text = "返回"
+
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 1
 
 [node name="RegionLabel" type="Label" parent="HUD"]
-layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
-text = "火山区域"
-theme_override_font_sizes/font_size = 18
+text = "火山地带"
 
 [node name="WeatherLabel" type="Label" parent="HUD"]
-layout_mode = 0
 offset_left = 10.0
 offset_top = 35.0
-text = "天气: "
+text = "天气: 晴天"
 
 [node name="PlayerLabel" type="Label" parent="HUD"]
-layout_mode = 0
 offset_left = 10.0
 offset_top = 60.0
 text = "Lv.1 HP:100"
+
+[node name="HintLabel" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 480.0
+text = "WASD移动 | F采集 | 触碰红色怪物进入战斗 | 右方深处为BOSS巢穴"

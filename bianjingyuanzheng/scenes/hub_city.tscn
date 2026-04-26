@@ -2,27 +2,45 @@
 
 [ext_resource type="Script" path="res://scripts/scenes/hub_city.gd" id="1"]
 
-[node name="HubCity" type="Node2D"]
+[node name="HubCity" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.118, 0.259, 0.118, 1)
 
-[node name="Actions" type="HBoxContainer" parent="."]
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 40.0
+offset_right = 150.0
+offset_bottom = 70.0
+text = "王国主城"
+horizontal_alignment = 1
+
+[node name="Actions" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 
 [node name="ForgeButton" type="Button" parent="Actions"]
 layout_mode = 2
@@ -34,23 +52,20 @@ text = "图书馆"
 
 [node name="PalaceButton" type="Button" parent="Actions"]
 layout_mode = 2
-text = "王宫"
+text = "王宫 (存档)"
 
 [node name="ExpeditionButton" type="Button" parent="Actions"]
 layout_mode = 2
 text = "出发远征"
 
 [node name="HUD" type="CanvasLayer" parent="."]
-layer = 1
 
 [node name="LevelLabel" type="Label" parent="HUD"]
-layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 text = "Lv.1 远征队长"
 
 [node name="GoldLabel" type="Label" parent="HUD"]
-layout_mode = 0
 offset_left = 10.0
 offset_top = 35.0
 text = "金币: 0"
