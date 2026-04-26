@@ -7,13 +7,13 @@ var monster_data: MonsterData = null
 var state: int = State.WANDER
 var _wander_timer: float = 0.0
 var _wander_direction: Vector2 = Vector2.ZERO
-var _move_speed: float = 50.0
-var _chase_speed: float = 120.0
+var _move_speed: float = 150.0
+var _chase_speed: float = 300.0
 var spawn_origin: Vector2 = Vector2.ZERO
 
-@export var alert_radius: float = 48.0
-@export var chase_radius: float = 32.0
-@export var wander_radius: float = 150.0
+@export var alert_radius: float = 120.0
+@export var chase_radius: float = 80.0
+@export var wander_radius: float = 300.0
 
 func _ready() -> void:
 	spawn_origin = position

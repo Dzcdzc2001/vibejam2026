@@ -63,6 +63,12 @@ func _spawn_one_monster() -> void:
 		sprite.scale = Vector2(3.0, 3.0)
 		monster_node.add_child(sprite)
 
+	var name_label := Label.new()
+	name_label.text = monster_res.display_name
+	name_label.position = Vector2(-40, -30)
+	name_label.add_theme_font_size_override('font_size', 12)
+	monster_node.add_child(name_label)
+
 	var collision := CollisionShape2D.new()
 	var rect_shape := RectangleShape2D.new()
 	rect_shape.size = Vector2(32, 32)
