@@ -16,5 +16,5 @@ static func calc_enemy_damage(base_atk: int, defense: int, is_defending: bool) -
     return max(raw, 1)
 
 static func calc_counter_damage(base_atk: int, difficulty: int) -> int:
-    var ratio := [0.3, 0.6, 1.0][clampi(difficulty - 1, 0, 2)]
+    var ratio: float = [0.3, 0.6, 1.0][clampi(difficulty - 1, 0, 2)]
     return int(base_atk * ratio * 1.5)

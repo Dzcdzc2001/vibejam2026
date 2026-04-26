@@ -1,8 +1,10 @@
-[gd_resource type="Resource" load_steps=7 format=3]
+[gd_resource type="Resource" load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/weather_table.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/weather_entry.gd" id="2"]
 
-[sub_resource type="WeatherEntry" id="WeatherEntry_1"]
+[sub_resource type="Resource" id="WeatherEntry_1"]
+script = ExtResource("2")
 weather_id = "clear"
 display_name = "晴天"
 base_weight = 25.0
@@ -13,7 +15,8 @@ player_spd_mod = 1.0
 player_hp_drain = 0.0
 rare_spawn_bonus = 0.0
 creativity_bonus = 0
-[sub_resource type="WeatherEntry" id="WeatherEntry_2"]
+[sub_resource type="Resource" id="WeatherEntry_2"]
+script = ExtResource("2")
 weather_id = "volcano_eruption"
 display_name = "火山喷发"
 base_weight = 10.0
@@ -24,7 +27,8 @@ player_spd_mod = 0.8
 player_hp_drain = 5.0
 rare_spawn_bonus = 0.2
 creativity_bonus = 2
-[sub_resource type="WeatherEntry" id="WeatherEntry_3"]
+[sub_resource type="Resource" id="WeatherEntry_3"]
+script = ExtResource("2")
 weather_id = "ash_storm"
 display_name = "灰烬风暴"
 base_weight = 15.0
@@ -35,7 +39,8 @@ player_spd_mod = 0.6
 player_hp_drain = 3.0
 rare_spawn_bonus = 0.1
 creativity_bonus = 1
-[sub_resource type="WeatherEntry" id="WeatherEntry_4"]
+[sub_resource type="Resource" id="WeatherEntry_4"]
+script = ExtResource("2")
 weather_id = "geothermal"
 display_name = "地热活跃"
 base_weight = 12.0
@@ -46,7 +51,8 @@ player_spd_mod = 1.0
 player_hp_drain = 0.0
 rare_spawn_bonus = 0.3
 creativity_bonus = 3
-[sub_resource type="WeatherEntry" id="WeatherEntry_5"]
+[sub_resource type="Resource" id="WeatherEntry_5"]
+script = ExtResource("2")
 weather_id = "volcano_aurora"
 display_name = "极光火山"
 base_weight = 8.0

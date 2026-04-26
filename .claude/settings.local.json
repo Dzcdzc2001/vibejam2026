@@ -10,7 +10,14 @@
       "Bash(/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng --check-only)",
       "Bash(/Applications/Godot.app/Contents/MacOS/Godot --headless --script res://scripts/scenes/main_menu.gd --path /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng)",
       "Bash(timeout 15 /Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng)",
-      "Bash(xxd)"
+      "Bash(xxd)",
+      "Bash(/Applications/Godot.app/Contents/MacOS/Godot *)",
+      "Bash(grep -o '\\\\$[A-Za-z/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/battle_scene.gd)",
+      "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/volcano_region.gd)",
+      "Bash(sed 's/.*name=\"//;s/\".*//')",
+      "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/hub_city.gd)",
+      "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/world_map.gd)",
+      "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/main_menu.gd)"
     ]
   }
 }

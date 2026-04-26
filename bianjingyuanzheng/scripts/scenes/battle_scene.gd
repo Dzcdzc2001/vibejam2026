@@ -57,12 +57,12 @@ func _on_state_changed(new_state: int) -> void:
 			_show_post_battle()
 
 func _on_attack() -> void:
-	var input_text := $PlayerInfo/SkillInput.text
+	var input_text: String = $PlayerInfo/SkillInput.text
 	if input_text.is_empty(): input_text = "斩击"
 	var weapon_type := "sword"
 	var wp := PlayerData.get_instance().equipped_weapon
 	if wp:
-		var types := ["sword", "bow", "staff", "shield"]
+		var types: Array[String] = ["sword", "bow", "staff", "shield"]
 		weapon_type = types[wp.weapon_type]
 	var creativity := skill_parser.parse_creativity(input_text, BattleConfig.from_region, weapon_type, turn_manager.monster_data.instant_skills[0].damage_type if turn_manager.monster_data.instant_skills.size() > 0 else "physical")
 	EventBus.skill_parsed.emit(input_text, creativity)
@@ -109,7 +109,7 @@ func _enemy_act() -> void:
 	match decision["action"]:
 		"instant":
 			var skill: SkillData = decision["skill"]
-			var atk_val := monster_instance["current_atk"] + (skill.base_damage if skill else 0)
+			var atk_val: int = monster_instance["current_atk"] + (skill.base_damage if skill else 0)
 			var damage := DamageCalculator.calc_enemy_damage(atk_val, turn_manager.player_def, turn_manager.is_defending)
 			turn_manager.player_hp -= damage
 			$PlayerInfo/StatusLabel.text = "%s造成 %d 点伤害!" % [turn_manager.monster_data.display_name, damage]
@@ -124,7 +124,7 @@ func _enemy_act() -> void:
 				turn_manager.advance_to(TurnManager.BattleState.QTE_ALERT)
 				return
 			else:
-				var atk_val := monster_instance["current_atk"] + (skill.base_damage * 2 if skill else 0)
+				var atk_val: int = monster_instance["current_atk"] + (skill.base_damage * 2 if skill else 0)
 				var damage := DamageCalculator.calc_enemy_damage(atk_val, turn_manager.player_def, turn_manager.is_defending)
 				turn_manager.player_hp -= damage
 				$PlayerInfo/StatusLabel.text = "%s释放蓄力攻击! 造成 %d 伤害!" % [turn_manager.monster_data.display_name, damage]
@@ -139,7 +139,8 @@ func _enemy_act() -> void:
 	turn_manager.advance_to(TurnManager.BattleState.PLAYER_TURN)
 
 func _start_qte() -> void:
-	var diff_min := 1; var diff_max := 2
+	var diff_min: int = 1
+	var diff_max: int = 2
 	if turn_manager.charge_skill_pending:
 		match turn_manager.charge_skill_pending.charge_turns:
 			2: diff_max = 2
@@ -149,7 +150,8 @@ func _start_qte() -> void:
 		return
 	$QTEPanel.show()
 	$QTEPanel/QuestionLabel.text = qte_controller.current_question.question
-	$QTEPanel/TimerBar.max_value = 5.0; $QTEPanel/TimerBar.value = 5.0
+	$QTEPanel/TimerBar.max_value = 5.0
+	$QTEPanel/TimerBar.value = 5.0
 	var shuffled := qte_controller.get_shuffled_options()
 	for i in range(4):
 		if i < shuffled.size():
@@ -197,11 +199,10 @@ func _show_post_battle() -> void:
 	p.add_exp(turn_manager.monster_data.exp_reward)
 	p.unlock_bestiary(turn_manager.monster_data.extinct_species_id)
 
-	# Process drops
 	for item_id in turn_manager.monster_data.drop_table:
 		var entry: Dictionary = turn_manager.monster_data.drop_table[item_id]
 		if randf() < entry.get("rate", 0.0):
-			var count := randi_range(entry.get("count_min", 1), entry.get("count_max", 1))
+			var count: int = randi_range(entry.get("count_min", 1), entry.get("count_max", 1))
 			p.add_item(item_id, count)
 
 	var data := revealer.get_reveal_data(turn_manager.monster_data)
@@ -224,7 +225,6 @@ func _show_post_battle() -> void:
 		$PostBattlePanel/TimelineLabel.text = data.get("human_timeline", "")
 		$PostBattlePanel/TimelineLabel.show()
 
-	# For normal monsters, auto-skip after 3 seconds
 	if data.get("monster_type", 0) == 0:
 		await get_tree().create_timer(3.0).timeout
 		if is_inside_tree():

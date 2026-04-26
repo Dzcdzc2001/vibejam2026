@@ -1,141 +1,162 @@
-[gd_resource type="Resource" load_steps=21 format=3]
+[gd_resource type="Resource" load_steps=22 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/qte_question.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/qte_question_item.gd" id="2"]
 
-[sub_resource type="QTEQuestion" id="QTEQuestion_1"]
+[sub_resource type="Resource" id="QTEQuestion_1"]
+script = ExtResource("2")
 id = 1
 category = "extinct_species"
 difficulty = 1
 question = "渡渡鸟的原产地是哪里？"
 options = Array[String](["毛里求斯", "马达加斯加", "塞舌尔", "马尔代夫"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_2"]
+[sub_resource type="Resource" id="QTEQuestion_2"]
+script = ExtResource("2")
 id = 2
 category = "extinct_species"
 difficulty = 1
 question = "最后一只渡渡鸟大约死于哪一年？"
 options = Array[String](["1681年", "1581年", "1781年", "1881年"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_3"]
+[sub_resource type="Resource" id="QTEQuestion_3"]
+script = ExtResource("2")
 id = 3
 category = "extinct_species"
 difficulty = 1
 question = "旅鸽曾经是北美数量最多的鸟类，其数量曾达到多少？"
 options = Array[String](["30-50亿只", "1-3亿只", "5-10亿只", "100-200亿只"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_4"]
+[sub_resource type="Resource" id="QTEQuestion_4"]
+script = ExtResource("2")
 id = 4
 category = "extinct_species"
 difficulty = 1
 question = "最后一只旅鸽'玛莎'死于哪家动物园？"
 options = Array[String](["辛辛那提动物园", "华盛顿动物园", "纽约动物园", "伦敦动物园"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_5"]
+[sub_resource type="Resource" id="QTEQuestion_5"]
+script = ExtResource("2")
 id = 5
 category = "extinct_species"
 difficulty = 1
 question = "袋狼的别名是什么？"
 options = Array[String](["塔斯马尼亚虎", "澳洲虎", "斑纹狼", "袋虎"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_6"]
+[sub_resource type="Resource" id="QTEQuestion_6"]
+script = ExtResource("2")
 id = 6
 category = "extinct_species"
 difficulty = 2
 question = "最后一只袋狼死于哪一年？"
 options = Array[String](["1936年", "1926年", "1946年", "1916年"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_7"]
+[sub_resource type="Resource" id="QTEQuestion_7"]
+script = ExtResource("2")
 id = 7
 category = "extinct_species"
 difficulty = 2
 question = "东部大猩猩目前被IUCN列为？"
 options = Array[String](["极危", "濒危", "易危", "灭绝"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_8"]
+[sub_resource type="Resource" id="QTEQuestion_8"]
+script = ExtResource("2")
 id = 8
 category = "extinct_species"
 difficulty = 2
 question = "北白犀目前野外还剩下多少只？"
 options = Array[String](["0只（已功能性灭绝）", "不到10只", "不到50只", "不到100只"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_9"]
+[sub_resource type="Resource" id="QTEQuestion_9"]
+script = ExtResource("2")
 id = 9
 category = "extinct_species"
 difficulty = 2
 question = "金斑喙凤蝶的栖息地在哪里？"
 options = Array[String](["中国南方山地", "东南亚雨林", "喜马拉雅山区", "亚马逊雨林"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_10"]
+[sub_resource type="Resource" id="QTEQuestion_10"]
+script = ExtResource("2")
 id = 10
 category = "volcano"
 difficulty = 1
 question = "火山喷发的主要气体成分是什么？"
 options = Array[String](["水蒸气", "二氧化碳", "二氧化硫", "氮气"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_11"]
+[sub_resource type="Resource" id="QTEQuestion_11"]
+script = ExtResource("2")
 id = 11
 category = "volcano"
 difficulty = 1
 question = "普林尼式喷发的特点是？"
 options = Array[String](["极高的喷发柱，剧烈爆炸", "温和的熔岩流", "间歇性小规模喷发", "海底熔岩涌出"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_12"]
+[sub_resource type="Resource" id="QTEQuestion_12"]
+script = ExtResource("2")
 id = 12
 category = "volcano"
 difficulty = 2
 question = "火山分为哪三种活动状态？"
 options = Array[String](["活火山、死火山、休眠火山", "大火山、中火山、小火山", "盾状火山、火山锥、复合火山", "陆地火山、海底火山、冰川火山"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_13"]
+[sub_resource type="Resource" id="QTEQuestion_13"]
+script = ExtResource("2")
 id = 13
 category = "biology"
 difficulty = 1
 question = "地球上大约有多少种已知物种？"
 options = Array[String](["约200万种", "约50万种", "约1000万种", "约100万种"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_14"]
+[sub_resource type="Resource" id="QTEQuestion_14"]
+script = ExtResource("2")
 id = 14
 category = "biology"
 difficulty = 2
 question = "第六次物种大灭绝的主要驱动因素是？"
 options = Array[String](["人类活动", "小行星撞击", "火山喷发", "气候变化"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_15"]
+[sub_resource type="Resource" id="QTEQuestion_15"]
+script = ExtResource("2")
 id = 15
 category = "biology"
 difficulty = 1
 question = "濒危物种红色名录由哪个组织发布？"
 options = Array[String](["世界自然保护联盟（IUCN）", "世界自然基金会（WWF）", "联合国教科文组织（UNESCO）", "绿色和平组织"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_16"]
+[sub_resource type="Resource" id="QTEQuestion_16"]
+script = ExtResource("2")
 id = 16
 category = "extinct_species"
 difficulty = 2
 question = "金斑喙凤蝶属于什么保护级别的物种？"
 options = Array[String](["国家一级保护动物", "国家二级保护动物", "世界自然保护联盟濒危物种", "CITES附录I物种"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_17"]
+[sub_resource type="Resource" id="QTEQuestion_17"]
+script = ExtResource("2")
 id = 17
 category = "volcano"
 difficulty = 2
 question = "夏威夷群岛是由什么类型的火山活动形成的？"
 options = Array[String](["热点火山", "板块俯冲火山", "裂谷火山", "冰川火山"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_18"]
+[sub_resource type="Resource" id="QTEQuestion_18"]
+script = ExtResource("2")
 id = 18
 category = "biology"
 difficulty = 1
 question = "生物多样性包括哪三个层次？"
 options = Array[String](["遗传多样性、物种多样性、生态系统多样性", "植物多样性、动物多样性、微生物多样性", "陆地生物、海洋生物、空中生物", "热带生物、温带生物、寒带生物"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_19"]
+[sub_resource type="Resource" id="QTEQuestion_19"]
+script = ExtResource("2")
 id = 19
 category = "extinct_species"
 difficulty = 2
 question = "渡渡鸟的学名是什么？"
 options = Array[String](["Raphus cucullatus", "Raphus solitarius", "Pezophaps solitaria", "Struthio camelus"])
 correct_index = 0
-[sub_resource type="QTEQuestion" id="QTEQuestion_20"]
+[sub_resource type="Resource" id="QTEQuestion_20"]
+script = ExtResource("2")
 id = 20
 category = "biology"
 difficulty = 2
