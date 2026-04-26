@@ -7,7 +7,7 @@
 script = ExtResource("1")
 region_id = "volcano"
 display_name = "火山区域"
-scene_path = "res://scenes/regions/volcano.tscn"
+scene_path = "res://scenes/volcano_region.tscn"
 difficulty = 1
 monster_pool = Array[String](["volcano_dodo", "ash_pigeon", "lava_beetle"])
 elite_monsters = Array[String](["flame_thylacine", "volcano_ape"])
