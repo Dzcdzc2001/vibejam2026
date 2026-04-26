@@ -91,7 +91,7 @@ func from_dict(data: Dictionary) -> void:
 	base_atk = data.get("base_atk", 10); base_def = data.get("base_def", 10)
 	base_hp = data.get("base_hp", 100); base_spd = data.get("base_spd", 10)
 	parsing_power = data.get("parsing_power", 0); gold = data.get("gold", 0)
-	inventory = data.get("inventory", {})
-	bestiary = data.get("bestiary", {})
-	conquered_regions = data.get("conquered_regions", [])
-	current_region_scene = data.get("current_region_scene", "")
+	inventory = data.get("inventory", {}) as Dictionary
+	bestiary = data.get("bestiary", {}) as Dictionary
+	conquered_regions.assign(data.get("conquered_regions", []))
+	current_region_scene = data.get("current_region_scene", "") as String
