@@ -56,6 +56,8 @@ func _exp_to_next_level() -> int:
 	return 100 + (level - 1) * 50
 
 func unlock_bestiary(species_id: String) -> void:
+	if species_id.is_empty():
+		return
 	if not bestiary.has(species_id):
 		bestiary[species_id] = true
 		base_hp += 10
@@ -78,6 +80,7 @@ func to_dict() -> Dictionary:
 		"base_hp": base_hp, "base_spd": base_spd,
 		"parsing_power": parsing_power, "gold": gold,
 		"equipped_weapon_id": equipped_weapon.weapon_id if equipped_weapon else "",
+		"equipped_weapon_path": equipped_weapon.resource_path if equipped_weapon else "",
 		"inventory": inventory,
 		"bestiary": bestiary,
 		"conquered_regions": conquered_regions,
@@ -95,3 +98,9 @@ func from_dict(data: Dictionary) -> void:
 	bestiary = data.get("bestiary", {}) as Dictionary
 	conquered_regions.assign(data.get("conquered_regions", []))
 	current_region_scene = data.get("current_region_scene", "") as String
+
+	var weapon_path := data.get("equipped_weapon_path", "") as String
+	if not weapon_path.is_empty():
+		equipped_weapon = load(weapon_path) as WeaponData
+	else:
+		equipped_weapon = null
