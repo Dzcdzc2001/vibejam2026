@@ -24,8 +24,6 @@ run/main_scene="res://scenes/main_menu.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=true
-window/stretch/mode=canvas_items
-window/stretch/aspect=expand
 
 [rendering]
 
