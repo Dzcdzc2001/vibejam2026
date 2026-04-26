@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/enchant_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enchant_id = "flame_feather_enchant"
+display_name = "火焰之羽"
+source_monster = "ash_pigeon"
+material_required = "flame_feather"
+material_count = 3
+effect_type = "atk_up"
+effect_value = 1.15
+trigger_chance = 0.8
+duration = 3

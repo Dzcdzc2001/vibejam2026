@@ -1,0 +1,47 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/monster_data.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/skills/fire_breath.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/skills/lava_charge.tres" id="3"]
+[resource]
+script = ExtResource("1")
+id = "volcano_dodo"
+display_name = "熔岩渡渡鸟"
+monster_type = 0
+extinct_species_id = "dodo"
+animal_trait_desc = "源自渡渡鸟的圆润体态与钩喙"
+region_adaptation = "岩浆甲壳：接触岩浆获得临时护盾"
+environment_bonus = {
+  "volcano_eruption": {
+    "def": 1.5
+  }
+}
+base_hp = 120
+base_atk = 18
+base_def = 12
+base_spd = 8
+base_res = 5
+region_type = "volcano"
+weather_bonus = {
+  "volcano_eruption": {
+    "atk": 1.2
+  }
+}
+weather_weakness = {
+  "clear": {
+    "def": 0.85
+  }
+}
+instant_skills = Array[ExtResource("2")]([ExtResource("2")])
+charge_skills = Array[ExtResource("3")]([ExtResource("3")])
+drop_table = {
+  "obsidian_beak": {
+    "rate": 0.3,
+    "count_min": 1,
+    "count_max": 2
+  }
+}
+exp_reward = 40
+bestiary_id = "dodo"
+intro_text = "一只圆润的怪物从岩浆中浮出，它的喙闪着黑曜石光泽——那是渡渡鸟最后的影子。"
+charge_alert_text = "熔岩渡渡鸟开始蓄力，即将发起岩浆冲锋！"

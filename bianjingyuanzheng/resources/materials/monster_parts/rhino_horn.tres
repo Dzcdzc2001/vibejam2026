@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/material_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+material_id = "rhino_horn"
+display_name = "犀王角"
+material_type = 1
+quality = 2
+source_region = "volcano"
+source_monster = "burning_rhino_king"
+drop_rate = 1.0
+description = "焚天犀王的独角，蕴含着毁灭性的力量。"
+atk_range = Vector2(50, 100)

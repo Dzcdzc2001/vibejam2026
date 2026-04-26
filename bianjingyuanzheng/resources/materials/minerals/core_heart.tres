@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/material_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+material_id = "core_heart"
+display_name = "核心之心"
+material_type = 0
+quality = 2
+source_region = "volcano"
+source_monster = ""
+drop_rate = 0.0
+description = "火山核心凝聚而成的传奇矿物，蕴含创世之力。"
+atk_range = Vector2(100, 200)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/skill_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skill_id = "ash_storm"
+display_name = "灰烬风暴"
+skill_type = 1
+charge_turns = 2
+base_damage = 70
+damage_type = "fire"
+target_type = "all"
+effects = Array[String](["def_down"])
+anim_tier = 2

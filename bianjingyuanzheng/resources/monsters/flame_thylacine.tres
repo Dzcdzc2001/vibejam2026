@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/monster_data.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/skills/flame_fang.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/skills/lava_charge.tres" id="3"]
+[ext_resource type="Resource" path="res://resources/skills/magma_shell.tres" id="4"]
+[resource]
+script = ExtResource("1")
+id = "flame_thylacine"
+display_name = "烈焰袋狼"
+monster_type = 1
+extinct_species_id = "thylacine"
+animal_trait_desc = "源自袋狼的条纹与獠牙——最后一只死于1936年的动物园中"
+region_adaptation = "岩浆斑纹：每回合回复5%HP"
+base_hp = 300
+base_atk = 35
+base_def = 18
+base_spd = 14
+base_res = 12
+region_type = "volcano"
+instant_skills = Array[ExtResource("2")]([ExtResource("2")])
+charge_skills = Array[ExtResource("3")]([ExtResource("3")])
+passive_skills = Array[ExtResource("4")]([ExtResource("4")])
+drop_table = {
+  "lava_fang": {
+    "rate": 0.25,
+    "count_min": 1,
+    "count_max": 1
+  }
+}
+exp_reward = 200
+bestiary_id = "thylacine"
+intro_text = "一只带有斑纹的巨兽从熔岩洞穴走出，它的条纹在火光中闪烁——袋狼，这个曾经真实存在于塔斯马尼亚的掠食者，在人类的猎杀令下永远沉默了。"
+charge_alert_text = "烈焰袋狼的条纹开始发光，它在积蓄力量！"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/enchant_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enchant_id = "lava_fang_enchant"
+display_name = "熔岩獠牙"
+source_monster = "flame_thylacine"
+material_required = "lava_fang"
+material_count = 2
+effect_type = "stun"
+effect_value = 1.0
+trigger_chance = 0.3
+duration = 1

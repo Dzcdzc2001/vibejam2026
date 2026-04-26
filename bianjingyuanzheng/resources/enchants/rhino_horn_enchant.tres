@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/enchant_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enchant_id = "rhino_horn_enchant"
+display_name = "犀角之力"
+source_monster = "burning_rhino_king"
+material_required = "rhino_horn"
+material_count = 1
+effect_type = "crit_up"
+effect_value = 0.25
+trigger_chance = 0.5
+duration = 0

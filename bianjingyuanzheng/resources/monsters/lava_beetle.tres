@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/monster_data.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/skills/ash_veil.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/skills/obsidian_peck.tres" id="3"]
+[resource]
+script = ExtResource("1")
+id = "lava_beetle"
+display_name = "熔核甲虫"
+monster_type = 0
+extinct_species_id = "golden_butterfly"
+animal_trait_desc = "源自金斑喙凤蝶的甲壳形态与鳞粉"
+region_adaptation = "熔岩外壳：灼热鳞粉降低玩家命中率"
+base_hp = 90
+base_atk = 15
+base_def = 20
+base_spd = 10
+base_res = 10
+region_type = "volcano"
+instant_skills = Array[ExtResource("3")]([ExtResource("3")])
+passive_skills = Array[ExtResource("2")]([ExtResource("2")])
+drop_table = {
+  "obsidian_beak": {
+    "rate": 0.25,
+    "count_min": 1,
+    "count_max": 1
+  }
+}
+exp_reward = 30
+bestiary_id = "golden_butterfly"
+intro_text = ""
+charge_alert_text = ""

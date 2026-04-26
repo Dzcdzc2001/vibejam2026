@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/material_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+material_id = "lava_fang"
+display_name = "熔岩獠牙"
+material_type = 1
+quality = 1
+source_region = "volcano"
+source_monster = "flame_thylacine"
+drop_rate = 0.25
+description = "烈焰袋狼的利齿，仍散发着余温。"
+atk_range = Vector2(25, 50)

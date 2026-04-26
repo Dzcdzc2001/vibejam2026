@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/material_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+material_id = "lava_scale"
+display_name = "熔岩鳞片"
+material_type = 1
+quality = 2
+source_region = "volcano"
+source_monster = "burning_rhino_king"
+drop_rate = 1.0
+description = "犀王身上脱落的传奇鳞片。"
+atk_range = Vector2(40, 80)

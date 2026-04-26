@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/enchant_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enchant_id = "obsidian_beak_enchant"
+display_name = "黑曜穿刺"
+source_monster = "lava_beetle"
+material_required = "obsidian_beak"
+material_count = 2
+effect_type = "pierce"
+effect_value = 0.3
+trigger_chance = 0.6
+duration = 0

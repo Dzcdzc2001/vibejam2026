@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/material_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+material_id = "lava_iron"
+display_name = "熔岩铁"
+material_type = 0
+quality = 1
+source_region = "volcano"
+source_monster = ""
+drop_rate = 0.0
+description = "地心熔炼千年的精铁，内含永恒之火。"
+atk_range = Vector2(60, 120)

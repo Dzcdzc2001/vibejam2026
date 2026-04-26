@@ -1,0 +1,63 @@
+[gd_resource type="Resource" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/weather_table.gd" id="1"]
+
+[sub_resource type="WeatherEntry" id="WeatherEntry_1"]
+weather_id = "clear"
+display_name = "晴天"
+base_weight = 25.0
+night_bonus = 0.0
+monster_atk_mod = 1.0
+monster_def_mod = 1.0
+player_spd_mod = 1.0
+player_hp_drain = 0.0
+rare_spawn_bonus = 0.0
+creativity_bonus = 0
+[sub_resource type="WeatherEntry" id="WeatherEntry_2"]
+weather_id = "volcano_eruption"
+display_name = "火山喷发"
+base_weight = 10.0
+night_bonus = 0.5
+monster_atk_mod = 1.3
+monster_def_mod = 1.2
+player_spd_mod = 0.8
+player_hp_drain = 5.0
+rare_spawn_bonus = 0.2
+creativity_bonus = 2
+[sub_resource type="WeatherEntry" id="WeatherEntry_3"]
+weather_id = "ash_storm"
+display_name = "灰烬风暴"
+base_weight = 15.0
+night_bonus = 0.3
+monster_atk_mod = 1.1
+monster_def_mod = 1.5
+player_spd_mod = 0.6
+player_hp_drain = 3.0
+rare_spawn_bonus = 0.1
+creativity_bonus = 1
+[sub_resource type="WeatherEntry" id="WeatherEntry_4"]
+weather_id = "geothermal"
+display_name = "地热活跃"
+base_weight = 12.0
+night_bonus = 0.4
+monster_atk_mod = 1.2
+monster_def_mod = 1.0
+player_spd_mod = 1.0
+player_hp_drain = 0.0
+rare_spawn_bonus = 0.3
+creativity_bonus = 3
+[sub_resource type="WeatherEntry" id="WeatherEntry_5"]
+weather_id = "volcano_aurora"
+display_name = "极光火山"
+base_weight = 8.0
+night_bonus = 1.0
+monster_atk_mod = 0.8
+monster_def_mod = 0.9
+player_spd_mod = 1.2
+player_hp_drain = 0.0
+rare_spawn_bonus = 0.5
+creativity_bonus = 5
+[resource]
+script = ExtResource("1")
+region_id = "volcano"
+entries = [SubResource("WeatherEntry_1"), SubResource("WeatherEntry_2"), SubResource("WeatherEntry_3"), SubResource("WeatherEntry_4"), SubResource("WeatherEntry_5")]

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/monster_data.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/skills/eruption_fury.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/skills/flame_fang.tres" id="3"]
+[ext_resource type="Resource" path="res://resources/skills/magma_shell.tres" id="4"]
+[ext_resource type="Resource" path="res://resources/skills/meteor_charge.tres" id="5"]
+[ext_resource type="Resource" path="res://resources/skills/volcano_stomp.tres" id="6"]
+[resource]
+script = ExtResource("1")
+id = "burning_rhino_king"
+display_name = "焚天·犀王"
+monster_type = 2
+extinct_species_id = "northern_white_rhino"
+animal_trait_desc = "源自北白犀——2018年最后一头雄性死去，人类用试管寄托物种存续的最后希望"
+region_adaptation = "熔岩巨角：攻击无视50%防御"
+base_hp = 1200
+base_atk = 60
+base_def = 30
+base_spd = 10
+base_res = 25
+region_type = "volcano"
+instant_skills = Array[ExtResource("3")]([ExtResource("3"), ExtResource("6")])
+charge_skills = Array[ExtResource("5")]([ExtResource("5"), ExtResource("2")])
+passive_skills = Array[ExtResource("4")]([ExtResource("4")])
+drop_table = {
+  "lava_scale": {
+    "rate": 1.0,
+    "count_min": 1,
+    "count_max": 1
+  },
+  "rhino_horn": {
+    "rate": 1.0,
+    "count_min": 1,
+    "count_max": 1
+  },
+  "core_heart": {
+    "rate": 1.0,
+    "count_min": 1,
+    "count_max": 1
+  }
+}
+exp_reward = 1200
+bestiary_id = "northern_white_rhino"
+intro_text = "火山口最深处，熔岩巨角划破天际。焚天·犀王——以北白犀为原型的终极变异体..."
+charge_alert_text = "犀王低下头，熔岩巨角瞄准了你——陨石冲锋即将释放！"

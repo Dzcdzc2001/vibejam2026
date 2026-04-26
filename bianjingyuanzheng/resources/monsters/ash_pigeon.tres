@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/monster_data.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/skills/ash_storm.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/skills/swarm_fire.tres" id="3"]
+[resource]
+script = ExtResource("1")
+id = "ash_pigeon"
+display_name = "灰烬旅鸽群"
+monster_type = 0
+extinct_species_id = "passenger_pigeon"
+animal_trait_desc = "源自旅鸽的集群习性与飞行能力"
+region_adaptation = "灰烬羽翼：在火山灰中隐身，闪避率+20%"
+base_hp = 100
+base_atk = 22
+base_def = 8
+base_spd = 15
+base_res = 8
+region_type = "volcano"
+instant_skills = Array[ExtResource("3")]([ExtResource("3")])
+charge_skills = Array[ExtResource("2")]([ExtResource("2")])
+drop_table = {
+  "flame_feather": {
+    "rate": 0.35,
+    "count_min": 1,
+    "count_max": 3
+  }
+}
+exp_reward = 35
+bestiary_id = "passenger_pigeon"
+intro_text = "一群灰烬覆盖的鸟怪盘旋在上空——旅鸽曾是北美最常见的鸟类，直到人类在百年间让数十亿条生命归于寂静。"
+charge_alert_text = "旅鸽群聚拢灰烬，风暴即将降临！"

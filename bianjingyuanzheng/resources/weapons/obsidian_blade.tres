@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/weapon_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+weapon_id = "obsidian_blade"
+display_name = "黑曜石之刃"
+weapon_type = 0
+forge_material_id = "obsidian"
+material_quality = 0
+base_atk_min = 50
+base_atk_max = 100
+element_type = "neutral"
+element_bonus = 1.0
+creativity_bonus = 0
+counter_bonus = 1.0
+level = 1
+enchant_slots = 1

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/enchant_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enchant_id = "lava_scale_enchant"
+display_name = "熔岩鳞甲"
+source_monster = "burning_rhino_king"
+material_required = "lava_scale"
+material_count = 1
+effect_type = "def_up"
+effect_value = 1.2
+trigger_chance = 0.9
+duration = 4

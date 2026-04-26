@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/skill_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+skill_id = "flame_fang"
+display_name = "火焰獠牙"
+skill_type = 0
+charge_turns = 0
+base_damage = 40
+damage_type = "fire"
+target_type = "single"
+effects = Array[String](["burn", "stun"])
+anim_tier = 1

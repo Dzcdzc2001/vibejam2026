@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/weapon_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+weapon_id = "volcano_staff"
+display_name = "火山法杖"
+weapon_type = 2
+forge_material_id = "sulfur_crystal"
+material_quality = 0
+base_atk_min = 40
+base_atk_max = 80
+element_type = "fire"
+element_bonus = 1.0
+creativity_bonus = 5
+counter_bonus = 1.0
+level = 1
+enchant_slots = 1

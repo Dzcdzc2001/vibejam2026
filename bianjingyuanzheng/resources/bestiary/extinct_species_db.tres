@@ -1,0 +1,109 @@
+[gd_resource type="Resource" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/extinct_species.gd" id="1"]
+
+[sub_resource type="ExtinctSpeciesEntry" id="ExtinctSpeciesEntry_1"]
+species_id = "dodo"
+common_name = "渡渡鸟"
+scientific_name = "Raphus cucullatus"
+era = "近代"
+extinct_year = 1681
+years_ago = "约345年前"
+extinct_cause = "人类捕杀与生态破坏"
+cause_detail = "荷兰殖民者登陆毛里求斯后，大量捕杀渡渡鸟，同时引入的猪、猴等动物破坏其巢穴，导致其迅速灭绝。"
+warning_message = "渡渡鸟是第一个因人类活动而广为人知的灭绝物种——它们不会飞，也不会害怕，这恰恰是它们无法存活的原因。"
+habitat = "森林"
+habitat_detail = "毛里求斯的原始森林，以多汁果实丰富的棕榈树林为主。"
+diet = "果实"
+diet_detail = "主要以落地的果实为食，尤其是毛里求斯特有的渡渡树（Tambalacoque）的果实。"
+size_desc = "体型如天鹅，重约10-18公斤"
+human_timeline = "1598年——荷兰船员首次记录渡渡鸟；1681年——最后记录"
+region_tags = Array[String](["volcano"])
+[sub_resource type="ExtinctSpeciesEntry" id="ExtinctSpeciesEntry_2"]
+species_id = "passenger_pigeon"
+common_name = "旅鸽"
+scientific_name = "Ectopistes migratorius"
+era = "近代"
+extinct_year = 1914
+years_ago = "约112年前"
+extinct_cause = "大规模商业捕杀与栖息地破坏"
+cause_detail = "19世纪，旅鸽是北美数量最多的鸟类，数量达30-50亿只。商业狩猎将其从天空清扫殆尽，最后一只'玛莎'于1914年死于辛辛那提动物园。"
+warning_message = "旅鸽的灭绝证明了一个残酷的事实：再庞大的种群也经不起人类的系统性屠杀。"
+habitat = "森林"
+habitat_detail = "北美东部的温带落叶林，以橡树和山毛榉为主。"
+diet = "果实与种子"
+diet_detail = "主要以橡子、栗子、山毛榉坚果等硬壳果实为食。"
+size_desc = "体长约40厘米，重约250-350克"
+human_timeline = "1813年——奥杜邦目睹旅鸽群遮蔽天空；1914年——'玛莎'在辛辛那提动物园死亡"
+region_tags = Array[String](["volcano"])
+[sub_resource type="ExtinctSpeciesEntry" id="ExtinctSpeciesEntry_3"]
+species_id = "golden_butterfly"
+common_name = "金斑喙凤蝶"
+scientific_name = "Teinopalpus aureus"
+era = "现代"
+extinct_year = 0
+years_ago = "极危物种，尚未灭绝"
+extinct_cause = "栖息地破坏与非法采集"
+cause_detail = "金斑喙凤蝶被誉为'蝶中皇后'，是中国特有的极危物种。其栖息地不断缩小，野生种群极度稀少。"
+warning_message = "有些物种虽然尚未灭绝，但已站在悬崖边上——金斑喙凤蝶的翅膀依然闪耀，但还能飞多久？"
+habitat = "山地森林"
+habitat_detail = "中国南方海拔1000米以上的常绿阔叶林，如武夷山、南岭等地。"
+diet = "花蜜"
+diet_detail = "主要以杜鹃花科植物的花蜜为食。"
+size_desc = "翅展约8-10厘米，雌蝶大于雄蝶"
+human_timeline = "1923年——首次被西方学者发现命名；2021年——被列为中国国家一级保护动物"
+region_tags = Array[String](["volcano"])
+[sub_resource type="ExtinctSpeciesEntry" id="ExtinctSpeciesEntry_4"]
+species_id = "thylacine"
+common_name = "袋狼（塔斯马尼亚虎）"
+scientific_name = "Thylacinus cynocephalus"
+era = "近代"
+extinct_year = 1936
+years_ago = "约90年前"
+extinct_cause = "人类猎杀与栖息地丧失"
+cause_detail = "袋狼曾是塔斯马尼亚的顶级掠食者。欧洲定居者因其袭击牲畜而悬赏猎杀，导致其野外灭绝。最后一只袋狼'本杰明'于1936年9月7日死于霍巴特动物园。"
+warning_message = "袋狼睁着它那标志性的大嘴打着哈欠的照片，是对人类暴行的无声控诉。"
+habitat = "疏林草原"
+habitat_detail = "澳大利亚大陆和塔斯马尼亚岛的干燥森林与草原地区。"
+diet = "肉食"
+diet_detail = "以袋鼠、小型有袋类动物和鸟类为食。"
+size_desc = "体长100-130厘米，肩高约60厘米"
+human_timeline = "1888年——塔斯马尼亚政府设立猎杀赏金；1936年——最后一只袋狼死亡"
+region_tags = Array[String](["volcano"])
+[sub_resource type="ExtinctSpeciesEntry" id="ExtinctSpeciesEntry_5"]
+species_id = "eastern_gorilla"
+common_name = "东部大猩猩"
+scientific_name = "Gorilla beringei"
+era = "现代"
+extinct_year = 0
+years_ago = "极危物种"
+extinct_cause = "栖息地丧失、偷猎与内战"
+cause_detail = "东部大猩猩是现存最大的灵长类动物。由于刚果民主共和国的武装冲突和非法采矿，其栖息地遭到严重破坏，数量持续下降，被IUCN列为极危物种。"
+warning_message = "东部大猩猩与人类共享98%的DNA——我们在屠杀自己的近亲，就像在屠杀自己的影子。"
+habitat = "山地雨林"
+habitat_detail = "刚果民主共和国、乌干达和卢旺达边境的维龙加山脉。"
+diet = "植食"
+diet_detail = "以树叶、茎干、果实和树皮为食。"
+size_desc = "雄性站立高约1.7米，体重可达200公斤"
+human_timeline = "1903年——首次被科学描述；2024年——野外数量估计仅约5000只"
+region_tags = Array[String](["volcano"])
+[sub_resource type="ExtinctSpeciesEntry" id="ExtinctSpeciesEntry_6"]
+species_id = "northern_white_rhino"
+common_name = "北白犀"
+scientific_name = "Ceratotherium simum cottoni"
+era = "现代"
+extinct_year = 2018
+years_ago = "功能性灭绝（2018年最后一头雄性死亡）"
+extinct_cause = "偷猎获取犀牛角"
+cause_detail = "北白犀曾是中非大草原的标志性物种。因犀牛角在黑市上的高价，它们遭到系统性盗猎。2018年最后一头雄性'苏丹'去世，如今仅剩两头雌性生活在肯尼亚的保护区中。"
+warning_message = "犀牛角的化学成分与人的指甲相同——为了指甲一样的物质，我们将一个物种推向了灭绝。这是人类贪婪最荒谬的写照。"
+habitat = "热带草原"
+habitat_detail = "刚果、乌干达、苏丹等国的热带稀树草原。"
+diet = "植食"
+diet_detail = "以草类为食，尤其是短草。"
+size_desc = "体长约3.7-4米，重约2-2.5吨"
+human_timeline = "1960年——估计仍有2000头；2018年——最后一只雄性'苏丹'死亡"
+region_tags = Array[String](["volcano"])
+[resource]
+script = ExtResource("1")
+entries = [SubResource("ExtinctSpeciesEntry_1"), SubResource("ExtinctSpeciesEntry_2"), SubResource("ExtinctSpeciesEntry_3"), SubResource("ExtinctSpeciesEntry_4"), SubResource("ExtinctSpeciesEntry_5"), SubResource("ExtinctSpeciesEntry_6")]

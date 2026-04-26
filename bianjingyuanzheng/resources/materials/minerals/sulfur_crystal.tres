@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/material_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+material_id = "sulfur_crystal"
+display_name = "硫磺结晶"
+material_type = 0
+quality = 0
+source_region = "volcano"
+source_monster = ""
+drop_rate = 0.0
+description = "火山喷气孔附近凝结的硫磺结晶，蕴含火焰能量。"
+atk_range = Vector2(40, 80)
