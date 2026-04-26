@@ -10,14 +10,17 @@ func _ready() -> void:
 	region_config = load("res://resources/regions/volcano_region.tres")
 
 	weather_controller = WeatherController.new()
-	weather_controller.weather_table = region_config.weather_table
+	if region_config != null and region_config.weather_table != null:
+		weather_controller.weather_table = region_config.weather_table
+	else:
+		weather_controller.weather_table = _create_default_weather_table()
 	add_child(weather_controller)
 
 	EventBus.weather_changed.connect(_on_weather_changed)
 
 	# Initialize monster spawners
 	for spawner in $Monsters.get_children():
-		if spawner is MonsterSpawner:
+		if spawner is MonsterSpawner and region_config != null:
 			spawner.initialize(region_config, current_weather)
 
 	_update_hud()
@@ -48,6 +51,8 @@ func _on_exit_entered(_body: Node2D) -> void:
 
 func _on_boss_lair_entered(_body: Node2D) -> void:
 	var boss_res := load("res://resources/monsters/burning_rhino_king.tres") as MonsterData
+	if boss_res == null:
+		return
 	BattleConfig.pending_monster = boss_res
 	BattleConfig.pending_monster_instance = {
 		"current_hp": boss_res.base_hp,
@@ -56,6 +61,64 @@ func _on_boss_lair_entered(_body: Node2D) -> void:
 		"current_spd": boss_res.base_spd,
 		"current_res": boss_res.base_res
 	}
-	BattleConfig.from_region = region_config.region_id
+	BattleConfig.from_region = region_config.region_id if region_config else "volcano"
 	BattleConfig.current_weather = current_weather
 	get_tree().change_scene_to_file("res://scenes/battle_scene.tscn")
+
+func _create_default_weather_table() -> WeatherTable:
+	var table := WeatherTable.new()
+	table.region_id = "volcano"
+
+	var entries: Array[WeatherEntry] = []
+
+	var clear_entry := WeatherEntry.new()
+	clear_entry.weather_id = "clear"
+	clear_entry.display_name = "晴天"
+	clear_entry.base_weight = 25.0
+	entries.append(clear_entry)
+
+	var eruption := WeatherEntry.new()
+	eruption.weather_id = "volcano_eruption"
+	eruption.display_name = "火山喷发"
+	eruption.base_weight = 10.0
+	eruption.monster_atk_mod = 1.3
+	eruption.monster_def_mod = 1.2
+	eruption.player_spd_mod = 0.8
+	eruption.player_hp_drain = 5.0
+	eruption.rare_spawn_bonus = 0.2
+	eruption.creativity_bonus = 2
+	entries.append(eruption)
+
+	var ash := WeatherEntry.new()
+	ash.weather_id = "ash_storm"
+	ash.display_name = "灰烬风暴"
+	ash.base_weight = 15.0
+	ash.monster_atk_mod = 1.1
+	ash.monster_def_mod = 1.5
+	ash.player_spd_mod = 0.6
+	ash.player_hp_drain = 3.0
+	entries.append(ash)
+
+	var geo := WeatherEntry.new()
+	geo.weather_id = "geothermal"
+	geo.display_name = "地热活跃"
+	geo.base_weight = 12.0
+	geo.monster_atk_mod = 1.2
+	geo.rare_spawn_bonus = 0.3
+	geo.creativity_bonus = 3
+	entries.append(geo)
+
+	var aurora := WeatherEntry.new()
+	aurora.weather_id = "volcano_aurora"
+	aurora.display_name = "极光火山"
+	aurora.base_weight = 8.0
+	aurora.night_bonus = 1.0
+	aurora.monster_atk_mod = 0.8
+	aurora.monster_def_mod = 0.9
+	aurora.player_spd_mod = 1.2
+	aurora.rare_spawn_bonus = 0.5
+	aurora.creativity_bonus = 5
+	entries.append(aurora)
+
+	table.entries = entries
+	return table
