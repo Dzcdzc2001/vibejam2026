@@ -13,7 +13,6 @@ func _ready() -> void:
 		return
 
 	monster_instance = BattleConfig.pending_monster_instance.duplicate()
-	# Fill in any missing keys with safe defaults
 	var required_keys := ["current_hp", "current_atk", "current_def", "current_spd", "current_res"]
 	for key in required_keys:
 		if not monster_instance.has(key):
@@ -29,16 +28,16 @@ func _ready() -> void:
 
 	if not is_inside_tree():
 		return
+
 	$MonsterInfo/NameLabel.text = monster_data.display_name
 	$MonsterInfo/HPBar.max_value = max(monster_instance.get("current_hp", 1), 1)
 	$MonsterInfo/HPBar.value = monster_instance.get("current_hp", 1)
 	$MonsterInfo/ChargeLabel.hide()
 
-	$MonsterSprite.region_enabled = true
 	match monster_data.monster_type:
-		1: $MonsterSprite.region_rect = Rect2(64, 0, 32, 32)
-		2: $MonsterSprite.region_rect = Rect2(96, 0, 32, 32)
-		_: $MonsterSprite.region_rect = Rect2(32, 0, 32, 32)
+		2: $MonsterSprite.modulate = Color(0.6, 0.2, 0.8, 1)
+		1: $MonsterSprite.modulate = Color(1.0, 0.6, 0.2, 1)
+		_: $MonsterSprite.modulate = Color(1.0, 0.3, 0.2, 1)
 
 	$PlayerInfo/HPBar.max_value = PlayerData.get_instance().base_hp
 	$PlayerInfo/HPBar.value = turn_manager.player_hp
@@ -74,13 +73,15 @@ func _on_state_changed(new_state: int) -> void:
 
 func _on_attack() -> void:
 	var input_text: String = $PlayerInfo/SkillInput.text
-	if input_text.is_empty(): input_text = "斩击"
+	if input_text.is_empty():
+		input_text = "斩击"
 	var weapon_type := "sword"
 	var wp := PlayerData.get_instance().equipped_weapon
 	if wp:
 		var types: Array[String] = ["sword", "bow", "staff", "shield"]
 		weapon_type = types[wp.weapon_type]
-	var creativity := skill_parser.parse_creativity(input_text, BattleConfig.from_region, weapon_type, turn_manager.monster_data.instant_skills[0].damage_type if turn_manager.monster_data.instant_skills.size() > 0 else "physical")
+	var creativity := skill_parser.parse_creativity(input_text, BattleConfig.from_region, weapon_type,
+		turn_manager.monster_data.instant_skills[0].damage_type if turn_manager.monster_data.instant_skills.size() > 0 else "physical")
 	EventBus.skill_parsed.emit(input_text, creativity)
 
 	var damage := DamageCalculator.calc_player_damage(PlayerData.get_instance().equipped_weapon, creativity, monster_instance["current_def"])
@@ -98,7 +99,8 @@ func _on_defend() -> void:
 
 func _on_flee() -> void:
 	var flee_chance: float = 0.5
-	if turn_manager.monster_data.monster_type == 1: flee_chance = 0.2
+	if turn_manager.monster_data.monster_type == 1:
+		flee_chance = 0.2
 	elif turn_manager.monster_data.monster_type == 2:
 		$PlayerInfo/StatusLabel.text = "BOSS战无法逃跑!"
 		return
@@ -120,7 +122,8 @@ func _after_player_action() -> void:
 
 func _enemy_act() -> void:
 	var ai := EnemyAI.new()
-	var decision := ai.decide_action(turn_manager.monster_data, monster_instance["current_hp"], turn_manager.monster_data.base_hp, turn_manager.charge_skill_pending)
+	var decision := ai.decide_action(turn_manager.monster_data, monster_instance["current_hp"],
+		turn_manager.monster_data.base_hp, turn_manager.charge_skill_pending)
 
 	match decision["action"]:
 		"instant":
@@ -179,7 +182,8 @@ func _process(delta: float) -> void:
 		$QTEPanel/TimerBar.value = qte_controller.time_remaining
 
 func _input(event: InputEvent) -> void:
-	if not qte_controller.is_active: return
+	if not qte_controller.is_active:
+		return
 	if event is InputEventKey and event.pressed:
 		var key_map := {KEY_1: 0, KEY_2: 1, KEY_3: 2, KEY_4: 3}
 		if event.keycode in key_map:
