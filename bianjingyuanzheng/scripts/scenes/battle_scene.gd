@@ -13,15 +13,25 @@ func _ready() -> void:
 		return
 
 	monster_instance = BattleConfig.pending_monster_instance.duplicate()
+	# Fill in any missing keys with safe defaults
+	var required_keys := ["current_hp", "current_atk", "current_def", "current_spd", "current_res"]
+	for key in required_keys:
+		if not monster_instance.has(key):
+			monster_instance[key] = monster_data.get(key.trim_prefix("current_"), 0)
+
 	add_child(turn_manager)
 	add_child(qte_controller)
-	qte_controller.qte_result.connect(_on_qte_result)
-	turn_manager.state_changed.connect(_on_state_changed)
+	if not qte_controller.qte_result.is_connected(_on_qte_result):
+		qte_controller.qte_result.connect(_on_qte_result)
+	if not turn_manager.state_changed.is_connected(_on_state_changed):
+		turn_manager.state_changed.connect(_on_state_changed)
 	turn_manager.initialize(monster_data, monster_instance, PlayerData.get_instance())
 
+	if not is_inside_tree():
+		return
 	$MonsterInfo/NameLabel.text = monster_data.display_name
-	$MonsterInfo/HPBar.max_value = monster_instance["current_hp"]
-	$MonsterInfo/HPBar.value = monster_instance["current_hp"]
+	$MonsterInfo/HPBar.max_value = max(monster_instance.get("current_hp", 1), 1)
+	$MonsterInfo/HPBar.value = monster_instance.get("current_hp", 1)
 	$MonsterInfo/ChargeLabel.hide()
 
 	$MonsterSprite.region_enabled = true

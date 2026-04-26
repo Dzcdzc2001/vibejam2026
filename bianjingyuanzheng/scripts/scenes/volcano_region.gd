@@ -1,10 +1,11 @@
 extends Node2D
 
-@export var move_speed: float = 200.0
+@export var move_speed: float = 400.0
 
 var region_config: RegionConfig = null
 var weather_controller: WeatherController = null
 var current_weather: String = "clear"
+var _battle_in_progress: bool = false
 
 func _ready() -> void:
 	region_config = load("res://resources/regions/volcano_region.tres")
@@ -62,8 +63,12 @@ func _on_exit_entered(_body: Node2D) -> void:
 	get_tree().change_scene_to_file("res://scenes/world_map.tscn")
 
 func _on_boss_lair_entered(_body: Node2D) -> void:
+	if _battle_in_progress:
+		return
+	_battle_in_progress = true
 	var boss_res := load("res://resources/monsters/burning_rhino_king.tres") as MonsterData
 	if boss_res == null:
+		_battle_in_progress = false
 		return
 	BattleConfig.pending_monster = boss_res
 	BattleConfig.pending_monster_instance = {

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var move_speed: float = 200.0
+@export var move_speed: float = 400.0
 
 func _ready() -> void:
 	var p := PlayerData.get_instance()

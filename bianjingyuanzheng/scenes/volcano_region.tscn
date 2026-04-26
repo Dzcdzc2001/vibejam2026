@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/scenes/volcano_region.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/placeholder/actor_32x32.png" id="2"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectShape16"]
 size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectShape32"]
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectShape64"]
 size = Vector2(64, 64)
@@ -36,15 +39,15 @@ groups = ["player_character"]
 texture = ExtResource("2")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 modulate = Color(0.3, 0.5, 1.0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
-shape = SubResource("RectShape16")
+shape = SubResource("RectShape32")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 enabled = true
-zoom = Vector2(0.75, 0.75)
+zoom = Vector2(0.5, 0.5)
 
 [node name="Monsters" type="Node2D" parent="."]
 
@@ -58,6 +61,13 @@ respawn_time = 30.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monsters/MonsterSpawner1"]
 shape = SubResource("RectShape16")
 
+[node name="Marker" type="Sprite2D" parent="Monsters/MonsterSpawner1"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(1.0, 0.2, 0.2, 0.4)
+scale = Vector2(3, 3)
+
 [node name="MonsterSpawner2" type="Area2D" parent="Monsters"]
 position = Vector2(500, 350)
 script = ExtResource("4")
@@ -68,6 +78,13 @@ respawn_time = 25.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monsters/MonsterSpawner2"]
 shape = SubResource("RectShape16")
 
+[node name="Marker" type="Sprite2D" parent="Monsters/MonsterSpawner2"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(1.0, 0.2, 0.2, 0.4)
+scale = Vector2(3, 3)
+
 [node name="MonsterSpawner3" type="Area2D" parent="Monsters"]
 position = Vector2(400, 500)
 script = ExtResource("4")
@@ -77,6 +94,13 @@ respawn_time = 35.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monsters/MonsterSpawner3"]
 shape = SubResource("RectShape16")
+
+[node name="Marker" type="Sprite2D" parent="Monsters/MonsterSpawner3"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(1.0, 0.2, 0.2, 0.4)
+scale = Vector2(3, 3)
 
 [node name="Resources" type="Node2D" parent="."]
 
@@ -91,6 +115,13 @@ cooldown_seconds = 120.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resources/ObsidianNode1"]
 shape = SubResource("RectShape16")
 
+[node name="Marker" type="Sprite2D" parent="Resources/ObsidianNode1"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(0.3, 0.3, 0.3, 0.9)
+scale = Vector2(3, 3)
+
 [node name="SulfurNode1" type="Area2D" parent="Resources"]
 position = Vector2(350, 150)
 script = ExtResource("5")
@@ -101,6 +132,13 @@ cooldown_seconds = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resources/SulfurNode1"]
 shape = SubResource("RectShape16")
+
+[node name="Marker" type="Sprite2D" parent="Resources/SulfurNode1"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+modulate = Color(1.0, 0.8, 0.1, 0.9)
+scale = Vector2(3, 3)
 
 [node name="ObsidianNode2" type="Area2D" parent="Resources"]
 position = Vector2(550, 180)
@@ -113,6 +151,13 @@ cooldown_seconds = 100.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resources/ObsidianNode2"]
 shape = SubResource("RectShape16")
 
+[node name="Marker" type="Sprite2D" parent="Resources/ObsidianNode2"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(0.3, 0.3, 0.3, 0.9)
+scale = Vector2(3, 3)
+
 [node name="SulfurNode2" type="Area2D" parent="Resources"]
 position = Vector2(600, 450)
 script = ExtResource("5")
@@ -123,6 +168,13 @@ cooldown_seconds = 130.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resources/SulfurNode2"]
 shape = SubResource("RectShape16")
+
+[node name="Marker" type="Sprite2D" parent="Resources/SulfurNode2"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+modulate = Color(1.0, 0.8, 0.1, 0.9)
+scale = Vector2(3, 3)
 
 [node name="ObsidianNode3" type="Area2D" parent="Resources"]
 position = Vector2(250, 500)
@@ -135,6 +187,13 @@ cooldown_seconds = 120.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resources/ObsidianNode3"]
 shape = SubResource("RectShape16")
 
+[node name="Marker" type="Sprite2D" parent="Resources/ObsidianNode3"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(0.3, 0.3, 0.3, 0.9)
+scale = Vector2(3, 3)
+
 [node name="ObsidianNode4" type="Area2D" parent="Resources"]
 position = Vector2(650, 250)
 script = ExtResource("5")
@@ -145,6 +204,13 @@ cooldown_seconds = 90.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resources/ObsidianNode4"]
 shape = SubResource("RectShape16")
+
+[node name="Marker" type="Sprite2D" parent="Resources/ObsidianNode4"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+modulate = Color(0.3, 0.3, 0.3, 0.9)
+scale = Vector2(3, 3)
 
 [node name="Triggers" type="Node2D" parent="."]
 
@@ -165,7 +231,7 @@ texture = ExtResource("3")
 region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 modulate = Color(1.0, 0.0, 0.0, 0.8)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 
 [node name="BossLabel" type="Label" parent="Triggers/BossLairTrigger"]
 position = Vector2(-50, -50)
@@ -183,7 +249,7 @@ texture = ExtResource("3")
 region_enabled = true
 region_rect = Rect2(0, 32, 32, 32)
 modulate = Color(0.3, 1.0, 0.3, 0.8)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 
 [node name="ExitLabel" type="Label" parent="Triggers/ExitTrigger"]
 position = Vector2(-30, -40)
