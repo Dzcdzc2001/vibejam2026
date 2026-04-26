@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/scenes/volcano_region.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/placeholder/actor_16x16.png" id="2"]
-[ext_resource type="Texture2D" path="res://assets/placeholder/tile_16x16.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/placeholder/actor_32x32.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/placeholder/tile_32x32.png" id="3"]
 [ext_resource type="Script" path="res://scripts/scenes/monster_spawner.gd" id="4"]
 [ext_resource type="Script" path="res://scripts/scenes/gather_node.gd" id="5"]
 
@@ -35,7 +35,8 @@ groups = ["player_character"]
 [node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter"]
 texture = ExtResource("2")
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
+region_rect = Rect2(0, 0, 32, 32)
+scale = Vector2(2, 2)
 modulate = Color(0.3, 0.5, 1.0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
@@ -43,6 +44,7 @@ shape = SubResource("RectShape16")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 enabled = true
+zoom = Vector2(0.75, 0.75)
 
 [node name="Monsters" type="Node2D" parent="."]
 
@@ -161,9 +163,9 @@ shape = SubResource("RectShape64")
 [node name="BossSprite" type="Sprite2D" parent="Triggers/BossLairTrigger"]
 texture = ExtResource("3")
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+region_rect = Rect2(32, 0, 32, 32)
 modulate = Color(1.0, 0.0, 0.0, 0.8)
-scale = Vector2(1.0, 1.0)
+scale = Vector2(2, 2)
 
 [node name="BossLabel" type="Label" parent="Triggers/BossLairTrigger"]
 position = Vector2(-50, -50)
@@ -179,8 +181,9 @@ shape = SubResource("RectShape64")
 [node name="ExitSprite" type="Sprite2D" parent="Triggers/ExitTrigger"]
 texture = ExtResource("3")
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+region_rect = Rect2(0, 32, 32, 32)
 modulate = Color(0.3, 1.0, 0.3, 0.8)
+scale = Vector2(2, 2)
 
 [node name="ExitLabel" type="Label" parent="Triggers/ExitTrigger"]
 position = Vector2(-30, -40)
@@ -209,3 +212,10 @@ text = "Lv.1 HP:100"
 offset_left = 10.0
 offset_top = 480.0
 text = "WASD移动 | F采集 | 触碰红色怪物进入战斗 | 右方深处为BOSS巢穴"
+
+[node name="BackToHubButton" type="Button" parent="HUD"]
+offset_left = 1100.0
+offset_top = 10.0
+offset_right = 1260.0
+offset_bottom = 45.0
+text = "返回主城 [B]"

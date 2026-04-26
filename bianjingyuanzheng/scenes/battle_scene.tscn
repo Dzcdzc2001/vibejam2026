@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/scenes/battle_scene.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/placeholder/actor_16x16.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/placeholder/actor_32x32.png" id="2"]
 
 [node name="BattleScene" type="Control"]
 layout_mode = 3

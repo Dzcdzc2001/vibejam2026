@@ -33,16 +33,25 @@ func _spawn_one_monster() -> void:
 	monster_node.name = "Monster_%s" % chosen_id
 
 	var sprite := Sprite2D.new()
-	sprite.texture = load("res://assets/placeholder/actor_16x16.png")
+	sprite.texture = load("res://assets/placeholder/actor_32x32.png")
+	sprite.region_enabled = true
+	sprite.hframes = 4
 	match monster_res.monster_type:
-		1: sprite.modulate = Color.ORANGE
-		2: sprite.modulate = Color.PURPLE
-		_: sprite.modulate = Color.ORANGE_RED
+		1:
+			sprite.modulate = Color.ORANGE
+			sprite.frame = 2  # elite: orange diamond
+		2:
+			sprite.modulate = Color.PURPLE
+			sprite.frame = 3  # boss: purple star
+		_:
+			sprite.modulate = Color.ORANGE_RED
+			sprite.frame = 1  # normal: red circle
+	sprite.scale = Vector2(1.5, 1.5)
 	monster_node.add_child(sprite)
 
 	var collision := CollisionShape2D.new()
 	var rect := RectangleShape2D.new()
-	rect.size = Vector2(16, 16)
+	rect.size = Vector2(32, 32)
 	collision.shape = rect
 	monster_node.add_child(collision)
 

@@ -24,6 +24,15 @@ func _ready() -> void:
 	$MonsterInfo/HPBar.value = monster_instance["current_hp"]
 	$MonsterInfo/ChargeLabel.hide()
 
+	# Set correct monster sprite frame from actor sheet
+	# Frame 0: player, Frame 1: normal (red circle), Frame 2: elite (orange diamond), Frame 3: boss (purple star)
+	# TextureRect uses region_rect instead of frame
+	$MonsterSprite.region_enabled = true
+	match monster_data.monster_type:
+		1: $MonsterSprite.region_rect = Rect2(64, 0, 32, 32)  # elite: orange diamond
+		2: $MonsterSprite.region_rect = Rect2(96, 0, 32, 32)  # boss: purple star
+		_: $MonsterSprite.region_rect = Rect2(32, 0, 32, 32)  # normal: red circle
+
 	$PlayerInfo/HPBar.max_value = PlayerData.get_instance().base_hp
 	$PlayerInfo/HPBar.value = turn_manager.player_hp
 
@@ -42,6 +51,15 @@ func _on_state_changed(new_state: int) -> void:
 		TurnManager.BattleState.PLAYER_TURN:
 			_enable_player_input(true)
 			$MonsterInfo/ChargeLabel.hide()
+
+	# Set correct monster sprite frame from actor sheet
+	# Frame 0: player, Frame 1: normal (red circle), Frame 2: elite (orange diamond), Frame 3: boss (purple star)
+	# TextureRect uses region_rect instead of frame
+	$MonsterSprite.region_enabled = true
+	match monster_data.monster_type:
+		1: $MonsterSprite.region_rect = Rect2(64, 0, 32, 32)  # elite: orange diamond
+		2: $MonsterSprite.region_rect = Rect2(96, 0, 32, 32)  # boss: purple star
+		_: $MonsterSprite.region_rect = Rect2(32, 0, 32, 32)  # normal: red circle
 		TurnManager.BattleState.ENEMY_CHARGE:
 			$MonsterInfo/ChargeLabel.text = "蓄力中: %s" % turn_manager.charge_skill_pending.display_name
 			$MonsterInfo/ChargeLabel.show()

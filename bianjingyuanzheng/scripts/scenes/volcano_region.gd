@@ -29,6 +29,7 @@ func _ready() -> void:
 	# Wire trigger signals
 	$Triggers/ExitTrigger.body_entered.connect(_on_exit_entered)
 	$Triggers/BossLairTrigger.body_entered.connect(_on_boss_lair_entered)
+	$HUD/BackToHubButton.pressed.connect(_on_back_to_hub_pressed)
 
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -44,6 +45,17 @@ func _update_hud() -> void:
 	$HUD/RegionLabel.text = region_config.display_name if region_config else "火山地带"
 	$HUD/WeatherLabel.text = "天气: %s" % current_weather
 	$HUD/PlayerLabel.text = "Lv.%d HP:%d" % [p.level, p.base_hp]
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_B:
+		_return_to_hub()
+
+func _on_back_to_hub_pressed() -> void:
+	_return_to_hub()
+
+func _return_to_hub() -> void:
+	EventBus.region_exited.emit("volcano")
+	get_tree().change_scene_to_file("res://scenes/hub_city.tscn")
 
 func _on_exit_entered(_body: Node2D) -> void:
 	EventBus.region_exited.emit("volcano")
