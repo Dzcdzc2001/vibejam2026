@@ -17,7 +17,7 @@ func _ready() -> void:
 	var required_keys := ["current_hp", "current_atk", "current_def", "current_spd", "current_res"]
 	for key in required_keys:
 		if not monster_instance.has(key):
-			monster_instance[key] = monster_data.get(key.trim_prefix("current_"), 0)
+			monster_instance[key] = monster_data.get(key.replace("current_", "base_"))
 
 	add_child(turn_manager)
 	add_child(qte_controller)

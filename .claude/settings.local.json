@@ -17,7 +17,8 @@
       "Bash(sed 's/.*name=\"//;s/\".*//')",
       "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/hub_city.gd)",
       "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/world_map.gd)",
-      "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/main_menu.gd)"
+      "Bash(grep -o '\\\\$[A-Za-z_/]*' /Users/moly/godot_projects/vibejam2026/bianjingyuanzheng/scripts/scenes/main_menu.gd)",
+      "Bash(echo \"EXIT_CODE=$?\")"
     ]
   }
 }
