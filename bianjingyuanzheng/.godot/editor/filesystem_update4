@@ -1,0 +1,15 @@
+res://scripts/resources/extinct_species.gd
+res://scripts/resources/qte_question.gd
+res://scripts/resources/weather_table.gd
+res://scripts/scenes/main_menu.gd
+res://scripts/managers/player_data.gd
+res://scripts/scenes/hub_city.gd
+res://scripts/scenes/volcano_region.gd
+res://scripts/scenes/post_battle_reveal.gd
+res://scripts/scenes/qte_controller.gd
+res://scripts/scenes/skill_parser.gd
+res://scripts/scenes/battle_scene.gd
+res://scripts/scenes/damage_calculator.gd
+res://scripts/scenes/monster_spawner.gd
+res://scripts/scenes/world_map.gd
+res://scripts/scenes/monster_ai.gd
