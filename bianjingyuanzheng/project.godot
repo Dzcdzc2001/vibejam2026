@@ -25,3 +25,5 @@ rendering_device/driver.windows="d3d12"
 [autoload]
 
 EventBus="*res://scripts/autoload/event_bus.gd"
+SaveManager="*res://scripts/autoload/save_manager.gd"
+AudioManager="*res://scripts/autoload/audio_manager.gd"
