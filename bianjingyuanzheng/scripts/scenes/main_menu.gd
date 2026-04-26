@@ -15,7 +15,7 @@ func _on_continue_pressed() -> void:
 	var data := SaveManager.load_game(0)
 	if not data.is_empty():
 		PlayerData.get_instance().from_dict(data.get("player", {}))
-		var scene := data.get("current_scene", "res://scenes/hub_city.tscn")
+		var scene: String = data.get("current_scene", "res://scenes/hub_city.tscn")
 		get_tree().change_scene_to_file(scene)
 
 func _on_bestiary_pressed() -> void:
