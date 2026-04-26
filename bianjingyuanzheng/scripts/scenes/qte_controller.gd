@@ -1,7 +1,7 @@
 class_name QteController
 extends Node
 
-var question_pool: QTEQuestionPool = null
+var _question_pool: QTEQuestionPool = null
 var current_question: QTEQuestion = null
 var time_remaining: float = 5.0
 var is_active: bool = false
@@ -10,22 +10,25 @@ var _shuffled_options: Array[String] = []
 
 signal qte_result(success: bool, value: float)
 
-func _ready() -> void:
-    question_pool = load("res://resources/qte/qte_question_pool.tres")
+func _get_pool() -> QTEQuestionPool:
+    if _question_pool == null:
+        _question_pool = load("res://resources/qte/qte_question_pool.tres")
+    return _question_pool
 
 func start_qte(difficulty_min: int, difficulty_max: int) -> void:
-    if question_pool == null or question_pool.questions.is_empty():
+    var pool := _get_pool()
+    if pool == null or pool.questions.is_empty():
         qte_result.emit(false, 0.0)
         return
 
     var candidates: Array[QTEQuestion] = []
-    for q in question_pool.questions:
+    for q in pool.questions:
         if q.difficulty >= difficulty_min and q.difficulty <= difficulty_max and not used_questions.has(q.id):
             candidates.append(q)
 
     if candidates.is_empty():
         used_questions.clear()
-        for q in question_pool.questions:
+        for q in pool.questions:
             if q.difficulty >= difficulty_min and q.difficulty <= difficulty_max:
                 candidates.append(q)
 
@@ -53,6 +56,9 @@ func get_shuffled_options() -> Array:
 func submit_answer(selected_index: int) -> void:
     if not is_active: return
     is_active = false
+    if current_question == null:
+        qte_result.emit(false, 0.0)
+        return
     var correct_text := current_question.options[current_question.correct_index]
     if selected_index < _shuffled_options.size() and _shuffled_options[selected_index] == correct_text:
         var counter_dmg := DamageCalculator.calc_counter_damage(50, current_question.difficulty)
@@ -65,6 +71,7 @@ func submit_answer(selected_index: int) -> void:
 
 func _on_timeout() -> void:
     is_active = false
-    var incoming := DamageCalculator.calc_enemy_damage(80, 10, false) * float(current_question.difficulty if current_question else 1)
+    var diff := current_question.difficulty if current_question else 1
+    var incoming := DamageCalculator.calc_enemy_damage(80, 10, false) * float(diff)
     EventBus.qte_failed.emit(incoming)
     qte_result.emit(false, incoming)

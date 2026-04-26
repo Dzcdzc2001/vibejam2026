@@ -1,14 +1,17 @@
 class_name PostBattleReveal
 extends RefCounted
 
-var extinct_db: ExtinctSpeciesDB = null
+var _extinct_db: ExtinctSpeciesDB = null
 
-func _init() -> void:
-    extinct_db = load("res://resources/bestiary/extinct_species_db.tres")
+func _get_db() -> ExtinctSpeciesDB:
+    if _extinct_db == null:
+        _extinct_db = load("res://resources/bestiary/extinct_species_db.tres")
+    return _extinct_db
 
 func get_species_entry(species_id: String) -> ExtinctSpeciesEntry:
-    if extinct_db == null: return null
-    for entry in extinct_db.entries:
+    var db := _get_db()
+    if db == null: return null
+    for entry in db.entries:
         if entry.species_id == species_id: return entry
     return null
 
