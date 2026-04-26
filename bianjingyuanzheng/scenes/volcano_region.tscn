@@ -158,9 +158,17 @@ position = Vector2(750, 300)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/BossLairTrigger"]
 shape = SubResource("RectShape64")
 
+[node name="BossSprite" type="Sprite2D" parent="Triggers/BossLairTrigger"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+modulate = Color(1.0, 0.0, 0.0, 0.8)
+scale = Vector2(1.0, 1.0)
+
 [node name="BossLabel" type="Label" parent="Triggers/BossLairTrigger"]
-position = Vector2(-50, -30)
+position = Vector2(-50, -50)
 text = "BOSS巢穴"
+modulate = Color(1.0, 0.3, 0.3, 1.0)
 
 [node name="ExitTrigger" type="Area2D" parent="Triggers"]
 position = Vector2(50, 550)
@@ -168,9 +176,16 @@ position = Vector2(50, 550)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ExitTrigger"]
 shape = SubResource("RectShape64")
 
+[node name="ExitSprite" type="Sprite2D" parent="Triggers/ExitTrigger"]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+modulate = Color(0.3, 1.0, 0.3, 0.8)
+
 [node name="ExitLabel" type="Label" parent="Triggers/ExitTrigger"]
-position = Vector2(-30, -20)
-text = "返回"
+position = Vector2(-30, -40)
+text = "返回世界地图"
+modulate = Color(0.3, 1.0, 0.3, 1.0)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 1
